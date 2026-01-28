@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glammed by Ramo</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="icon" type="image/png" href="static/images/favicon.png">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pVJb0m6KXk4Vh7yE06cG6d0w7MK+g5j7uU/5k3xPfW/1q2iZ9+rPNv6Q1V5tLQJ9ZXoq7m6s5F8r2FQ6qq6lKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container header-container">
+      <img src="static/images/profile.jpg" alt="Glammed by Ramo" class="profile-pic">
+      <div class="header-text">
+        <h1>Glammed by Ramo</h1>
+        <p>Where beauty meets perfection</p>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#gallery">Portfolio</a>
+          <a href="#booking">Book</a>
+          <a href="#footer-contact">Contact</a>
+
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services & Prices -->
+  <section id="services" class="section">
+    <p class="section-label">OUR MENU</p>
+    <h2 class="section-title">Services & Pricing</h2>
+    <p class="section-subtitle">
+      Choose the perfect glam for your special occasion. Travel services available upon request.
+    </p>
+
+    <div class="service-category">
+      <h3>Makeup</h3>
+      <ul>
+        <li>Soft Glam: R450</li>
+        <li>Full Glam: R650</li>
+      </ul>
+    </div>
+
+    <div class="service-category">
+      <h3>Bridal Makeup</h3>
+      <ul>
+        <li>Bride: R750</li>
+        <li>Bridal Trial: R600</li>
+        <li>Bridesmaids: R500</li>
+      </ul>
+    </div>
+
+    <!-- Travel Policy -->
+    <div class="travel-policy">
+      <h4>Travel Policy</h4>
+      <p>
+        NB: Available for house calls and venue call-outs.<br>
+        Additional costs apply depending on distance.
+      </p>
+    </div>
+  </section>
+
+  <!-- Portfolio / Gallery -->
+  <section id="gallery" class="section portfolio-section">
+    <h2 class="portfolio-title">Our Portfolio</h2>
+    <p class="portfolio-subtitle">
+      A collection of our favourite transformations.<br>
+      From subtle enhancements to dramatic statements.
+    </p>
+
+    <div class="images" id="gallery-container"></div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking" class="section booking-section">
+    <h2 class="booking-title">Ready to get Glammed?</h2>
+
+    <p class="booking-text">
+      Secure your spot today ✨<br>
+      A <strong>50% non-refundable deposit</strong> is required to confirm your booking.
+    </p>
+
+    <a href="https://wa.me/27826891360" target="_blank" class="button booking-button">
+      BOOK NOW!
+    </a>
+
+    <!-- Payment Details -->
+    <div class="payment-info">
+      <h3>Payment Details</h3>
+      <p><strong>CAPITEC ACC:</strong> 1222619138</p>
+      <p><strong>Beneficiary Name:</strong> RE Mashishi</p>
+      <p class="payment-note">
+        *please send proof of payment to confirm booking
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <footer id="footer-contact">
+    <div class="footer-container">
+      <!-- Brand & Tagline -->
+      <div class="footer-section">
+        <h2>Glammed By Ramo</h2>
+        <p>Dedicated to making you look and feel your absolute best for any occasion.</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:glammedbyramo@example.com">glammedbyramo@example.com</a></p>
+        <p>Phone: <a href="tel:+27826891360">+27 82 689 1360</a></p>
+        <p>Address: <a href="https://maps.app.goo.gl/q5PcnmHamtF9r1GF7" target="_blank">14 Rupert St, Modimolle</a></p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/glammedbyramo" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61585151411389" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://www.tiktok.com/@glammed_by_ramo" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Glammed By Ramo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Gallery Images JS -->
+  <script>
+    const galleryContainer = document.getElementById('gallery-container');
+
+    const images = [
+      'photo1.jpg',
+      'photo2.jpg',
+      'photo3.jpg',
+      'photo4.jpg',
+      'photo5.jpg',
+      'photo6.jpg'
+    ];
+
+    images.forEach(img => {
+      const imageElement = document.createElement('img');
+      imageElement.src = `static/images/${img}`;
+      imageElement.alt = "Makeup Portfolio";
+      galleryContainer.appendChild(imageElement);
+    });
+  </script>
+
+</body>
+</html>
