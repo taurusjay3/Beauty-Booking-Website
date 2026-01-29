@@ -76,7 +76,6 @@ header nav a:hover {
   transform: scale(1.05);
 }
 
-
 /* Sections */
 .section {
   scroll-margin-top: 130px;
@@ -192,29 +191,26 @@ header nav a:hover {
 
 .images {
   display: grid;
-  grid-template-columns: repeat(3, max-content); /* columns fit image width */
-  gap: 20px;                                     /* space between images */
-  justify-content: center;                        /* center the entire grid */
+  grid-template-columns: repeat(3, max-content);
+  gap: 20px;
+  justify-content: center;
   align-items: center;
-  padding: 20px 0;                                /* optional top/bottom padding */
+  padding: 20px 0;
 }
 
-
 .images img {
-  width: 300px;       /* fixed width */
-  height: 300px;      /* fixed height */
-  object-fit: cover;  /* keeps aspect ratio and crops if necessary */
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
   border-radius: 15px;
   transition: transform 0.5s, box-shadow 0.5s;
   cursor: pointer;
 }
 
-
 .images img:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
-
 
 /* Booking Section */
 .booking-section {
@@ -385,3 +381,134 @@ footer {
   padding-top: 15px;
 }
 
+/* ===============================
+   RESPONSIVE DESIGN (ALL DEVICES)
+   =============================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+  header .profile-pic {
+    width: 85px;
+    height: 85px;
+    top: 12px;
+    left: 15px;
+  }
+
+  .section-title {
+    font-size: 2.4em;
+  }
+
+  .booking-title {
+    font-size: 2.5em;
+  }
+
+  .images {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+/* Mobile phones — ONLY THIS BLOCK CHANGED */
+@media (max-width: 768px) {
+
+  header {
+    padding: 20px 15px;
+  }
+
+  header .profile-pic {
+    position: static;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  header .header-text {
+    display: block;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  header nav a {
+    display: inline-block;
+    margin: 6px;
+    font-size: 0.95em;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+
+  .section-title {
+    font-size: 2.2em;
+  }
+
+  .section-subtitle {
+    font-size: 1em;
+  }
+
+  .service-category li {
+    display: block;
+    margin: 10px auto;
+    width: fit-content;
+  }
+
+  /* 🔧 UPDATED GALLERY ONLY */
+  .images {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .images img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .booking-title {
+    font-size: 2.2em;
+  }
+
+  .booking-text {
+    font-size: 1.1em;
+  }
+
+  .booking-button {
+    font-size: 1.2em;
+    padding: 15px 35px;
+  }
+
+  .payment-info {
+    padding: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links a {
+    justify-content: center;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .booking-title {
+    font-size: 2em;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+}
