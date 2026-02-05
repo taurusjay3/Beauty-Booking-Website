@@ -16,11 +16,17 @@
       <div class="header-text">
         <h1>Glammed by Ramo</h1>
         <p>Where beauty meets perfection</p>
-        <nav>
-          <a href="#services">Services</a>
-          <a href="#gallery">Portfolio</a>
-          <a href="#booking">Book</a>
-          <a href="#footer-contact">Contact</a>
+        <nav class="nav">
+          <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Portfolio</a></li>
+            <li><a href="#booking">Book</a></li>
+            <li><a href="#footer-contact">Contact</a></li>
+          </ul>
         </nav>
       </div>
     </div>
@@ -124,6 +130,22 @@
       imageElement.src = `static/images/${img}`;
       imageElement.alt = "Makeup Portfolio";
       galleryContainer.appendChild(imageElement);
+    });
+  </script>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
     });
   </script>
 
