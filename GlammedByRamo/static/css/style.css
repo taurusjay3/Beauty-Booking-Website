@@ -497,18 +497,73 @@ footer {
   }
 }
 
-/* Small phones */
-@media (max-width: 480px) {
+/* ===============================
+   MOBILE NAVIGATION MENU
+================================ */
 
-  header h1 {
-    font-size: 1.8em;
+.nav {
+  position: relative;
+}
+
+/* Hamburger icon */
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: white;
+}
+
+/* Navigation links (desktop default) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ===============================
+   MOBILE VIEW
+================================ */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    margin-top: 10px;
   }
 
-  .booking-title {
-    font-size: 2em;
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(90deg, #d6336c, #ff85b3);
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border-radius: 15px;
+    padding: 15px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   }
 
-  .section-title {
-    font-size: 2em;
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
   }
 }
