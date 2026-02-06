@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glammed by Ramo</title>
+  <title>Services — Glammed by Ramo</title>
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="icon" type="image/png" href="static/images/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="services-page">
 
   <header id="header">
     <div class="header-container">
@@ -27,12 +27,11 @@
     </div>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="#home">Home</a></li>
+      <li><a href="index.html#home">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="booking.html">Booking</a></li>
       <li><a href="#footer-contact">Contact</a></li>
-      <!-- Mobile-only CTA shown inside the hamburger menu -->
       <li class="nav-cta"><a href="booking.html" class="header-cta">BOOK NOW!</a></li>
     </ul>
   </nav>
@@ -42,79 +41,42 @@
 
   </header>
 
-  <section id="home" class="hero-section">
-    <div class="hero-content">
-      <h2>Welcome to Glammed by Ramo</h2>
-      <p class="hero-subtitle">Where beauty is enhanced, confidence is celebrated and every face tells a story.</p>
-      <blockquote class="hero-quote">“Makeup is not a mask — it’s a form of self-expression.”</blockquote>
-
-      <div class="hero-ctas">
-        <a href="#services" class="btn btn-primary">Explore Our Services</a>
-        <a href="https://wa.me/27826891360" target="_blank" class="btn btn-outline">Book a Session</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="section">
-    <p class="section-label">OUR MENU</p>
-    <h2 class="section-title">Services & Pricing</h2>
-    <p class="section-subtitle">
-      Choose the perfect glam for your special occasion. Travel services available upon request.
-    </p>
-
-    <div class="service-category">
-      <h3>Makeup</h3>
-      <ul>
-        <li>Soft Glam: R450</li>
-        <li>Full Glam: R650</li>
-      </ul>
-    </div>
-
-    <div class="service-category">
-      <h3>Bridal Makeup</h3>
-      <ul>
-        <li>Bride: R750</li>
-        <li>Bridal Trial: R600</li>
-        <li>Bridesmaids: R500</li>
-      </ul>
-    </div>
-
-    <div class="travel-policy">
-      <h4>Travel Policy</h4>
-      <p>
-        NB: Available for house calls and venue call-outs.<br>
-        Additional costs apply depending on distance.
+  <main>
+    <section id="services" class="section">
+      <p class="section-label">OUR MENU</p>
+      <h2 class="section-title">Services & Pricing</h2>
+      <p class="section-subtitle">
+        Choose the perfect glam for your special occasion. Travel services available upon request.
       </p>
-    </div>
-  </section>
 
-  <section id="gallery" class="section portfolio-section">
-    <h2 class="section-title">Our Portfolio</h2>
-    <p class="section-subtitle">
-      A collection of our favourite transformations.
-    </p>
-    <div class="images" id="gallery-container"></div>
-  </section>
+      <div class="service-category">
+        <h3>Makeup</h3>
+        <ul>
+          <li>Soft Glam: R450</li>
+          <li>Full Glam: R650</li>
+        </ul>
+      </div>
 
-  <section id="booking" class="section booking-section">
-    <h2 class="section-title">Ready to get Glammed?</h2>
-    <p class="booking-text">
-      Secure your spot today ✨<br>
-      A <strong>50% non-refundable deposit</strong> is required.
-    </p>
+      <div class="service-category">
+        <h3>Bridal Makeup</h3>
+        <ul>
+          <li>Bride: R750</li>
+          <li>Bridal Trial: R600</li>
+          <li>Bridesmaids: R500</li>
+        </ul>
+      </div>
 
-    <a href="https://wa.me/27826891360" target="_blank" class="booking-button">
-      BOOK NOW!
-    </a>
+      <div class="travel-policy">
+        <h4>Travel Policy</h4>
+        <p>
+          NB: Available for house calls and venue call-outs.<br>
+          Additional costs apply depending on distance.
+        </p>
+      </div>
+    </section>
+  </main>
 
-    <div class="payment-info">
-      <h3>Payment Details</h3>
-      <p><strong>CAPITEC ACC:</strong> 1222619138</p>
-      <p><strong>Beneficiary Name:</strong> RE Mashishi</p>
-      <p>*please send proof of payment to confirm the booking</p>
-    </div>
-  </section>
-
+  <!-- Footer copied from index.html -->
   <footer id="footer-contact">
     <div class="footer-container">
       <div class="footer-section">
@@ -141,22 +103,8 @@
 
     <div class="footer-bottom">
       <p>© 2026 Glammed By Ramo. All rights reserved.</p>
-  
     </div>
   </footer>
-
-
-  <script>
-    const galleryContainer = document.getElementById('gallery-container');
-    const images = ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg'];
-
-    images.forEach(img => {
-      const imageElement = document.createElement('img');
-      imageElement.src = `static/images/${img}`;
-      imageElement.alt = "Makeup Portfolio";
-      galleryContainer.appendChild(imageElement);
-    });
-  </script>
 
   <script>
     (function(){
@@ -164,42 +112,12 @@
       const navLinks = document.getElementById("nav-links");
 
       if (menuToggle && navLinks) {
-        // toggle menu and body class, update aria for accessibility
         menuToggle.setAttribute('aria-controls', 'nav-links');
         menuToggle.setAttribute('aria-expanded', 'false');
-
-        function showOverlay() {
-          removeOverlay();
-          const ov = document.createElement('div');
-          ov.id = 'menu-overlay';
-          ov.className = 'menu-overlay';
-          ov.addEventListener('click', () => closeMenu());
-          document.body.appendChild(ov);
-        }
-        function removeOverlay() {
-          const ov = document.getElementById('menu-overlay');
-          if (ov) ov.remove();
-        }
-        function openMenu() {
-          navLinks.classList.add('active');
-          document.body.classList.add('menu-open');
-          menuToggle.setAttribute('aria-expanded','true');
-          showOverlay();
-        }
-        function closeMenu() {
-          navLinks.classList.remove('active');
-          document.body.classList.remove('menu-open');
-          menuToggle.setAttribute('aria-expanded','false');
-          removeOverlay();
-        }
-        function toggleMenu(e) {
-          if (e) e.preventDefault();
-          const isActive = navLinks.classList.toggle('active');
-          document.body.classList.toggle('menu-open', isActive);
-          menuToggle.setAttribute('aria-expanded', String(isActive));
-          if (isActive) showOverlay(); else removeOverlay();
-          console.log('menuToggle clicked (index), active=', isActive);
-        }
+        function showOverlay() { removeOverlay(); const ov = document.createElement('div'); ov.id = 'menu-overlay'; ov.className = 'menu-overlay'; ov.addEventListener('click', () => closeMenu()); document.body.appendChild(ov); }
+        function removeOverlay() { const ov = document.getElementById('menu-overlay'); if (ov) ov.remove(); }
+        function closeMenu() { navLinks.classList.remove('active'); document.body.classList.remove('menu-open'); menuToggle.setAttribute('aria-expanded','false'); removeOverlay(); }
+        function toggleMenu(e) { if (e) e.preventDefault(); const isActive = navLinks.classList.toggle('active'); document.body.classList.toggle('menu-open', isActive); menuToggle.setAttribute('aria-expanded', String(isActive)); if (isActive) showOverlay(); else removeOverlay(); console.log('menuToggle clicked (services), active=', isActive); }
 
         menuToggle.addEventListener('click', toggleMenu);
         menuToggle.addEventListener('touchstart', (e) => { e.preventDefault(); toggleMenu(e); }, {passive:false});
@@ -209,17 +127,12 @@
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(e); }
         });
 
-        // allow closing menu with Escape
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && navLinks.classList.contains('active')) {
             closeMenu();
             menuToggle.focus();
           }
         });
-      }
-
-      function setActiveLinkByHref(href) {
-        document.querySelectorAll(".nav-links a").forEach(a => a.classList.toggle('active', a.getAttribute('href')===href));
       }
 
       document.querySelectorAll('.nav-links a').forEach(link => {
@@ -237,7 +150,6 @@
             } else {
               location.href = 'index.html#home';
             }
-            setActiveLinkByHref(href);
             return;
           }
 
@@ -256,7 +168,6 @@
             } else {
               location.href = 'index.html#footer-contact';
             }
-            setActiveLinkByHref(href);
             return;
           }
 
@@ -264,7 +175,6 @@
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
-            setActiveLinkByHref(href);
             return;
           }
 
@@ -280,21 +190,15 @@
       });
 
       document.addEventListener('DOMContentLoaded', () => {
-        // set active link based on current URL
-        const page = (location.pathname.split('/').pop() || 'index.html') + (location.hash || '');
-        let matched = false;
-        document.querySelectorAll('.nav-links a').forEach(a => {
-          const h = a.getAttribute('href');
-          if (h && (page === h || location.href.endsWith(h))) { a.classList.add('active'); matched = true; }
+        const page = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && href.includes(page)) link.classList.add('active');
         });
-        if (!matched && (location.pathname.split('/').pop() === '' || location.pathname.split('/').pop() === 'index.html')) {
-          const homeLink = document.querySelector('.nav-links a[href="#footer-contact"], .nav-links a[href="#home"]');
-          if (homeLink) homeLink.classList.add('active');
-        }
 
         // debug: force menu open when ?debugMenu=1 is present
         if (new URLSearchParams(location.search).get('debugMenu') === '1') {
-          console.log('debug: forcing menu open (index)');
+          console.log('debug: forcing menu open (services)');
           setTimeout(() => {
             navLinks.classList.add('active');
             document.body.classList.add('menu-open');
