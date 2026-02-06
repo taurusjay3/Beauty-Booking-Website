@@ -12,71 +12,132 @@ body {
 }
 
 /* Header */
-/* Header */
 header {
   position: sticky;
   top: 0;
   background: linear-gradient(90deg, #d6336c, #ff85b3);
   color: white;
-  padding: 15px 20px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  padding: 15px 25px;
+  box-shadow: none; /* removed thin line under nav */
+  border-bottom: none;
   z-index: 1000;
-  text-align: center; /* center header text */
 }
 
-header .header-container {
+.header-container {
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header .profile-pic {
-  position: absolute; /* move profile picture to top-left */
-  top: 15px;
-  left: 20px;
-  width: 100px;
-  height: 100px;
+/* Brand (logo + name) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-pic {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-header .header-text {
-  display: inline-block;
-  text-align: center;
-}
-
-header h1 {
+.brand-text h1, .header-text h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5em;
+  font-size: 1.6em;
   margin: 0;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
-header p {
-  font-size: 1.1em;
-  margin: 5px 0 10px;
-}
-
-header nav {
-  margin-top: 10px;
-}
-
-header nav a {
-  color: white;
-  margin: 0 12px;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-header nav a:hover {
-  background: rgba(255,255,255,0.3);
-  transform: scale(1.05);
-}
+.brand-text p, .header-text p {
+  font-size: 0.85em;
+  margin: 0;
+  opacity: 0.9;
+} 
 
 /* Sections */
+
+/* Hero / Home feature */
+.hero-section {
+  position: relative;
+  background-image: url('../images/hero.jpg'); /* place your hero image at static/images/hero.jpg */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Overlay for better contrast over the image */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(214,51,108,0.6), rgba(255,133,179,0.45));
+  z-index: 0;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; /* sit above overlay */
+} 
+
+.hero-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8em;
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.hero-subtitle {
+  font-size: 1.15em;
+  margin-bottom: 18px;
+  opacity: 0.95;
+}
+
+.hero-quote {
+  font-style: italic;
+  margin-bottom: 22px;
+  color: rgba(255,255,255,0.95);
+}
+
+.hero-ctas .btn {
+  display: inline-block;
+  margin: 0 8px;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff4f9a, #ff85b3);
+  color: white;
+  box-shadow: 0 10px 25px rgba(255,79,154,0.25);
+}
+
+.btn-primary:hover { transform: translateY(-3px); }
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.9);
+}
+
+.btn-outline:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
 .section {
   scroll-margin-top: 130px;
   padding: 50px 20px;
@@ -134,6 +195,37 @@ header nav a:hover {
   padding: 0;
 }
 
+/* Services page: slightly reduced typography for a more compact layout (reduced once more) */
+.services-page .section-title {
+  font-size: 2.4em; /* reduced from 2.6em */
+}
+
+.services-page .section-subtitle {
+  font-size: 0.95em; /* reduced from 1.0em */
+}
+
+.services-page .service-category h3 {
+  font-size: 1.45em; /* reduced from 1.6em */
+}
+
+.services-page .service-category li {
+  font-size: 1.0em; /* reduced from 1.05em */
+}
+
+.services-page .travel-policy h4 {
+  font-size: 1.0em; /* reduced from 1.1em */
+}
+
+.services-page .travel-policy p {
+  font-size: 0.9em; /* reduced from 0.95em */
+}
+
+@media (max-width: 768px) {
+  .services-page .section-title { font-size: 2.0em; }
+  .services-page .service-category h3 { font-size: 1.35em; }
+  .services-page .service-category li { font-size: 0.95em; }
+  .services-page .service-category { margin: 14px 0; }
+}
 .service-category li {
   display: inline-block;
   font-size: 1.2em;
@@ -258,6 +350,24 @@ header nav a:hover {
   transform: scale(1.07);
   box-shadow: 0 14px 35px rgba(255,79,154,0.6);
 }
+
+/* Header CTA (small header button) */
+.header-cta {
+  background: linear-gradient(135deg, #ff4f9a, #ff85b3);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 3px solid #ffffff; /* white padding border */
+  box-shadow: 0 8px 20px rgba(255,79,154,0.25);
+  transition: transform 0.2s ease;
+  background-clip: padding-box;
+}
+
+.header-cta:hover {
+  transform: translateY(-2px);
+} 
 
 /* Payment Info */
 .payment-info {
@@ -411,32 +521,41 @@ footer {
 /* Mobile phones — ONLY THIS BLOCK CHANGED */
 @media (max-width: 768px) {
 
-  header {
-    padding: 20px 15px;
+  .header-container {
+    flex-direction: row;
+    align-items: center;
   }
 
-  header .profile-pic {
-    position: static;
-    margin: 0 auto 10px;
-    display: block;
+  .brand-text h1, .header-text h1 {
+    font-size: 1.4em;
   }
 
-  header .header-text {
-    display: block;
+  .brand-text p, .header-text p {
+    display: none; /* cleaner mobile header */
   }
 
-  header h1 {
-    font-size: 2em;
+  /* Hero mobile adjustments */
+  .hero-section {
+    padding: 40px 15px;
+    min-height: auto;
+    background-position: center top;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
-  header p {
-    font-size: 1em;
+  .hero-section h2 {
+    font-size: 1.6em;
   }
 
-  header nav a {
-    display: inline-block;
-    margin: 6px;
+  .hero-subtitle {
     font-size: 0.95em;
+  }
+
+  .hero-ctas .btn {
+    display: block;
+    margin: 10px auto;
+    width: calc(100% - 40px);
+    max-width: 340px;
   }
 
   .section {
@@ -483,17 +602,60 @@ footer {
     padding: 15px 35px;
   }
 
+  .header-cta {
+    padding: 6px 12px;
+    font-size: 0.95em;
+    border: 2px solid #ffffff; /* slightly smaller on mobile */
+  }
+
   .payment-info {
     padding: 20px;
   }
 
+  /* Mobile footer: keep original colors, only adjust layout for stacking and spacing */
   .footer-container {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    align-items: flex-start;
+    gap: 4px; /* tightened further */
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin: 2px 0; /* even smaller vertical spacing */
+  }
+
+  .footer-section h2,
+  .footer-section h3 {
+    margin-bottom: 4px;
+    font-size: 1.02em;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    text-decoration: none;
+    margin-bottom: 4px;
+    display: block;
+    font-size: 0.92em;
+    line-height: 1.28;
   }
 
   .social-links a {
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 6px; /* tightened icon-to-text spacing */
+  }
+
+  .social-links a i {
+    font-size: 0.96em;
+  }
+
+  /* Footer bottom: reduce top spacing on mobile */
+  .footer-bottom {
+    margin-top: 8px;
+    font-size: 0.82em;
+    padding-top: 6px;
   }
 }
 
@@ -502,7 +664,12 @@ footer {
 ================================ */
 
 .nav {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1001;
 }
 
 /* Hamburger icon */
@@ -529,10 +696,36 @@ footer {
   padding: 6px 12px;
   border-radius: 8px;
   transition: 0.3s;
+  text-decoration: none; /* remove underline */
+  border-bottom: none; /* ensure no bottom border */
 }
 
 .nav-links li a:hover {
   background: rgba(255,255,255,0.3);
+}
+
+/* Keep keyboard accessibility visible but remove persistent line */
+.nav-links li a:focus {
+  outline: 2px solid rgba(255,255,255,0.25);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+.nav-links li a.active {
+  background: rgba(255,255,255,0.35);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.06);
+}
+
+/* Mobile CTA: default hidden, shown inside hamburger */
+.nav-cta { display: none; }
+
+/* Style CTA inside the mobile nav when shown */
+.nav-links li .header-cta {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 3px solid #ffffff;
+  margin: 8px auto;
 }
 
 /* ===============================
@@ -542,28 +735,137 @@ footer {
 
   .menu-toggle {
     display: block;
-    margin-top: 10px;
+    position: absolute; /* place at top-right corner */
+    right: 12px;
+    top: 12px;
+    transform: none;
+    font-size: 1.7em;
+    margin: 0;
+    padding: 8px; /* larger tap target */
+    border-radius: 8px;
+    touch-action: manipulation; /* improve touch responsiveness */
+    -webkit-tap-highlight-color: rgba(255,255,255,0.12);
+    pointer-events: auto;
+    z-index: 1006; /* ensure toggle sits above everything */
+    color: white;
   }
 
+  .header-container {
+    padding-right: 96px; /* make extra room for hamburger so it won't overlap the brand */
+    position: relative; /* anchor the absolute menu to the header area */
+    z-index: 1004;
+  }
+
+  .brand {
+    z-index: 1002; /* ensure brand sits above the nav background */
+  }
+
+  .nav {
+    position: static;
+  }
+
+  /* Mobile menu: fixed positioning so it reliably appears above content on small viewports */
   .nav-links {
     display: none;
     flex-direction: column;
     background: linear-gradient(90deg, #d6336c, #ff85b3);
-    position: absolute;
-    top: 45px;
+    position: fixed; /* use fixed to avoid stacking/overflow issues */
+    top: 64px; /* just below header (sticky header height) */
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    border-radius: 15px;
-    padding: 15px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    width: 94%;
+    max-width: 420px;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    box-sizing: border-box;
+    max-height: calc(100vh - 80px); /* leave space for header */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+    z-index: 10099; /* ensure menu overlays everything */
+  }
+
+  /* Show CTA inside menu and hide top-right CTA on mobile */
+  .nav-cta { display: block; }
+  .header-cta { display: none; }
+
+  .nav-links li .header-cta {
+    width: calc(100% - 24px);
+    max-width: 380px;
+    text-align: center;
+    display: block;
+    margin: 8px auto 0;
   }
 
   .nav-links.active {
+    display: flex !important; /* ensure mobile menu is visible when JS toggles 'active' */
+    outline: 4px dashed #fff200; /* bright visual indicator */
+    transform: translateX(-50%) scale(1.01);
+  }
+
+  /* Body-level class for extra control */
+  .menu-open .nav-links {
+    display: flex !important;
+  }
+
+  /* Temporary debug label when the menu is open */
+  body.menu-open::after {
+    content: 'MENU OPEN';
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    z-index: 10100;
+    font-weight: 700;
+    font-size: 0.9em;
+  }
+
+  /* click-capturing overlay added by JS to close the menu when tapping outside */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 10098;
+  }
+
+  /* Temporary fullscreen debug overlay (triggered via ?debugMenu=1) */
+  .menu-debug {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 240, 0, 0.08);
+    border: 4px dashed rgba(255, 200, 0, 0.85);
+    z-index: 10150;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: auto;
+  }
+  .menu-debug .debug-message {
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.95em;
   }
 
   .nav-links li {
-    margin: 10px 0;
+    margin: 8px 0;
   }
+}
+
+/* Extra compact footer rules for small phones */
+@media (max-width: 480px) {
+  footer { padding: 16px 10px; }
+  .footer-container { gap: 4px; padding: 0 6px; }
+  .footer-section { margin: 0; }
+  .footer-section h2, .footer-section h3 { font-size: 1.0em; margin-bottom: 3px; }
+  .footer-section p, .footer-section a { font-size: 0.88em; margin-bottom: 3px; padding: 6px 0; }
+  .social-links { display: flex; flex-wrap: wrap; gap: 6px; }
+  .social-links a { padding: 4px 0; }
+  .footer-bottom { margin-top: 6px; font-size: 0.78em; padding-top: 4px; text-align: left; }
 }
